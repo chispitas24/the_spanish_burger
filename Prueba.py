@@ -55,4 +55,7 @@ menubar.add_command(label="My order")
 # display Menu
 gui.config(menu=menubar)
 
+label = Label(gui, text="Hola", relief=RAISED)
+label.pack()
+
 gui.mainloop()
