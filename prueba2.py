@@ -6,6 +6,8 @@ from PIL import Image, ImageTk
 WIDTH = 1000
 HEIGHT = 400
 
+home = None
+
 
 def set_position(screen_name):
     """Center window in the screen
@@ -36,6 +38,7 @@ def create_menu(screen_name):
 
 
 def main():
+    """Main program"""
     home = tk.Tk()  # Main page
     home.title("Home | The Spanish Burger")
     home.configure(background="black")

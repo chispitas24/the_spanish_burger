@@ -1,7 +1,8 @@
 import tkinter as tk
 from tkinter import *
 
-global gui
+gui = tk.Tk()
+
 # Global variables
 WIDHT = 700
 HEIGHT = 400
@@ -40,7 +41,7 @@ def menu_account():
 
 
 def main():
-    gui = tk.Tk()
+
     gui.title("Home | The Spanish Burger")
 
     screen_width = gui.winfo_screenwidth()
