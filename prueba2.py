@@ -3,8 +3,8 @@ import tkinter as tk
 from PIL import Image, ImageTk
 
 # Constants
-WIDTH = 1000
-HEIGHT = 400
+WIDTH = 2000
+HEIGHT = 1800
 
 home = None
 
@@ -47,46 +47,71 @@ def main():
     set_position(home)
     #create_menu(home)
 
-    menu_frame = tk.Frame()
-    #menu_frame.grid(row=1, column=4, columnspan=2)
+    menu_frame = tk.Frame(bg="white")
 
     menu_button = tk.Button(
         master=menu_frame,
-        text="MENU"
+        text="MENU",
+        highlightthickness=0,
+        bd=0,
+        font="Helvetica 30 bold",
+        bg="white"
     )
     menu_button.pack(side=tk.LEFT)
 
     coupons_button = tk.Button(
         master=menu_frame,
-        text="COUPONS"
+        text="COUPONS",
+        highlightthickness=0,
+        bd=0,
+        font="Helvetica 30 bold",
+        bg="white"
     )
     coupons_button.pack(side=tk.LEFT)
 
     # Imagen con el logo
-    photo = tk.PhotoImage(file = r"./media/")
-    photoimage = photo.subsample(3, 3)
+    photo = tk.PhotoImage(file = r"./media/logo_general.png")
+    photoimage_1 = photo.subsample(1, 2)
 
     mainmenu_button = tk.Button(
         master=menu_frame,
-        image=photoimage
+        image=photoimage_1,
+        highlightthickness=0,
+        bd=0,
+        font="Helvetica 30 bold",
+        bg="white"
     )
     mainmenu_button.pack(side=tk.LEFT)
 
     delivery_button = tk.Button(
         master=menu_frame,
-        text="DELIVERY"
+        text="DELIVERY",
+        highlightthickness=0,
+        bd=0,
+        font="Helvetica 30 bold",
+        bg="white"
     )
     delivery_button.pack(side=tk.LEFT)
 
     account_button = tk.Button(
         master=menu_frame,
-        text="MY ACCOUNT"
+        text="MY ACCOUNT",
+        highlightthickness=0,
+        bd=0,
+        font="Helvetica 30 bold",
+        bg="white"
     )
     account_button.pack(side=tk.LEFT)
 
+    photo = tk.PhotoImage(file=r"./media/carrito.png")
+    photoimage_2 = photo.subsample(8, 8)
     order_button = tk.Button(
         master=menu_frame,
-        text="MY ORDER"
+        image=photoimage_2,
+        highlightthickness=0,
+        bd=0,
+        font="Helvetica 30 bold",
+        bg="white"
     )
     order_button.pack(side=tk.LEFT)
 
