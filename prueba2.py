@@ -45,7 +45,54 @@ def main():
 
     # Set position on screen and size
     set_position(home)
-    create_menu(home)
+    #create_menu(home)
+
+    menu_frame = tk.Frame()
+    #menu_frame.grid(row=1, column=4, columnspan=2)
+
+    menu_button = tk.Button(
+        master=menu_frame,
+        text="MENU"
+    )
+    menu_button.pack(side=tk.LEFT)
+
+    coupons_button = tk.Button(
+        master=menu_frame,
+        text="COUPONS"
+    )
+    coupons_button.pack(side=tk.LEFT)
+
+    # Imagen con el logo
+    photo = tk.PhotoImage(file = r"./media/")
+    photoimage = photo.subsample(3, 3)
+
+    mainmenu_button = tk.Button(
+        master=menu_frame,
+        image=photoimage
+    )
+    mainmenu_button.pack(side=tk.LEFT)
+
+    delivery_button = tk.Button(
+        master=menu_frame,
+        text="DELIVERY"
+    )
+    delivery_button.pack(side=tk.LEFT)
+
+    account_button = tk.Button(
+        master=menu_frame,
+        text="MY ACCOUNT"
+    )
+    account_button.pack(side=tk.LEFT)
+
+    order_button = tk.Button(
+        master=menu_frame,
+        text="MY ORDER"
+    )
+    order_button.pack(side=tk.LEFT)
+
+    menu_frame.pack()
+
+
 
     label = tk.Label(
         text="↓ VIEW MORE ↓", foreground="orange", background="black", font="Helvetica 18 bold"
