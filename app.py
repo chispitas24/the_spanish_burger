@@ -36,7 +36,7 @@ def menu_account():
     new_window = Toplevel(gui)
     new_window.geometry("750x250")
     new_window.title("Account | The Spanish Burger")
-    new_window.geometry("%dx%d+%d+%d" % (width, height, x, y))
+    new_window.geometry("%dx%d+%d+%d" % (WIDHT, HEIGHT, x, y))
 
 
 def main():
