@@ -48,10 +48,12 @@ def main():
     create_menu(home)
 
     label = tk.Label(
-        text="↓ VIEW MORE ↓", foreground="orange", background="black", font=("Helvetica 18 bold")
-    ).pack(side="bottom")
+        text="↓ VIEW MORE ↓", foreground="orange", background="black", font="Helvetica 18 bold"
+    )
+    label.pack(side="bottom")
 
     home.mainloop()
+
 
 
 main()
