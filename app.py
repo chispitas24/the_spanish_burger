@@ -63,6 +63,7 @@ def main():
     """Main program"""
     win = tk.Tk()  # Main page
     win.title("Home | The Spanish Burger")
+    image = PhotoImage(file = "./media/wa")
     win.configure(background="black")
 
     # Set position on screen and size
@@ -82,28 +83,29 @@ def main():
     create_button_image(pic_2, menu_frame)
     menu_frame.pack(pady=30)
 
-    image = Image.open("./media/albacete.jpg")
-    resize_image = image.resize((300, 300))
+    image = Image.open(r"./media/albacete.jpg")
+    resize_image = image.resize((450, 450))
     img_albacete = ImageTk.PhotoImage(resize_image)
 
     image = Image.open(r"./media/nachos.png")
-    resize_image = image.resize((300, 300))
+    resize_image = image.resize((450, 450))
     img_nachos = ImageTk.PhotoImage(resize_image)
 
     image = Image.open(r"./media/pizza.png")
-    resize_image = image.resize((300, 300))
+    resize_image = image.resize((450, 450))
     img_pizza = ImageTk.PhotoImage(resize_image)
 
-    photo_frame = tk.Frame(pady=20)
+    photo_frame = tk.Frame(padx=50, bg="black")
     albacete = tk.Label(image=img_albacete, master=photo_frame)
     albacete.image = img_albacete
-    albacete.pack(side=tk.LEFT)
-    nachos = tk.Label(image=img_nachos)
+    albacete.pack(padx=50, side=tk.LEFT)
+    nachos = tk.Label(image=img_nachos, master=photo_frame)
     nachos.image = img_nachos
-    nachos.pack(side=tk.LEFT)
-    pizza = tk.Label(image=img_pizza)
+    nachos.pack(padx=50, side=tk.LEFT)
+    pizza = tk.Label(image=img_pizza, master=photo_frame)
     pizza.image = img_pizza
-    pizza.pack(side=tk.LEFT)
+    pizza.pack(padx=50, side=tk.LEFT)
+    photo_frame.pack(padx=50, pady=30)
 
 
 
