@@ -63,8 +63,6 @@ def main():
     """Main program"""
     win = tk.Tk()  # Main page
     win.title("Home | The Spanish Burger")
-    image = PhotoImage(file = "./media/wa")
-    win.configure(background="black")
 
     # Set position on screen and size
     set_position(win)
