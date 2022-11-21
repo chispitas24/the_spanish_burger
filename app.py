@@ -1,5 +1,4 @@
 import tkinter as tk
-
 from PIL import Image, ImageTk
 
 # Constants
@@ -60,44 +59,63 @@ def create_button_image(image_name, frame_name):
     button.pack(side=tk.LEFT)
 
 
-def create_menu():
-    """Create the menu
-    """
-    menu_frame = tk.Frame(bg="white", pady=20)
-
-    create_button("MENU", menu_frame)
-    create_button("COUPONS", menu_frame)
-
-    # Imagen con el logo
-    photo = tk.PhotoImage(file=r"./media/logo_general.png")
-    pic = photo.subsample(1, 2)
-    create_button_image(pic, menu_frame)
-
-    create_button("DELIVERY", menu_frame)
-    create_button("MY ACCOUNT", menu_frame)
-
-    photo = tk.PhotoImage(file=r"./media/carrito.png")
-    pic = photo.subsample(8, 8)
-    create_button_image(pic, menu_frame)
-
-    menu_frame.pack()
-
-
 def main():
     """Main program"""
-    home = tk.Tk()  # Main page
-    home.title("Home | The Spanish Burger")
-    home.configure(background="black")
+    win = tk.Tk()  # Main page
+    win.title("Home | The Spanish Burger")
+    win.configure(background="black")
 
     # Set position on screen and size
-    set_position(home)
-    create_menu()
+    set_position(win)
+
+    # Create menu
+    menu_frame = tk.Frame(bg="white", pady=20)
+    create_button("HOME", menu_frame)
+    create_button("COUPONS", menu_frame)
+    photo = tk.PhotoImage(file=r"./media/logo_general.png")
+    pic_1 = photo.subsample(1, 2)
+    create_button_image(pic_1, menu_frame)
+    create_button("DELIVERY", menu_frame)
+    create_button("MY ACCOUNT", menu_frame)
+    photo = tk.PhotoImage(file=r"./media/carrito.png")
+    pic_2 = photo.subsample(8, 8)
+    create_button_image(pic_2, menu_frame)
+    menu_frame.pack(pady=30)
+
+    image = Image.open("./media/albacete.jpg")
+    resize_image = image.resize((300, 300))
+    img_albacete = ImageTk.PhotoImage(resize_image)
+
+    image = Image.open(r"./media/nachos.png")
+    resize_image = image.resize((300, 300))
+    img_nachos = ImageTk.PhotoImage(resize_image)
+
+    image = Image.open(r"./media/pizza.png")
+    resize_image = image.resize((300, 300))
+    img_pizza = ImageTk.PhotoImage(resize_image)
+
+    photo_frame = tk.Frame(pady=20)
+    albacete = tk.Label(image=img_albacete, master=photo_frame)
+    albacete.image = img_albacete
+    albacete.pack(side=tk.LEFT)
+    nachos = tk.Label(image=img_nachos)
+    nachos.image = img_nachos
+    nachos.pack(side=tk.LEFT)
+    pizza = tk.Label(image=img_pizza)
+    pizza.image = img_pizza
+    pizza.pack(side=tk.LEFT)
+
+
+
+
+
+    # Create main frame
     label = tk.Label(
         text="↓ VIEW MORE ↓", foreground="orange", background="black", font="Helvetica 18 bold"
     )
     label.pack(side="bottom")
 
-    home.mainloop()
+    win.mainloop()
 
 
 main()
