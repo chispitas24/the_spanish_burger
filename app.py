@@ -1,5 +1,6 @@
 import tkinter as tk
 from PIL import Image, ImageTk
+from more_itertools import side_effect
 
 # Constants
 
@@ -38,7 +39,7 @@ def create_button(text, frame_name, frame_delete):
         text=text,
         highlightthickness=0,
         bd=0,
-        font="Helvetica 30 bold",
+        font="Helvetica 20 bold",
         bg="white",
         padx=50,
         command=lambda: change_screen(text, frame_delete)
@@ -95,12 +96,6 @@ def main():
     create_button_image(pic_2, "CART", top_bar_frame, bottom_frame)
     top_bar_frame.pack(pady=30)
 
-    # Create main frame
-    label = tk.Label(
-        text="↓ VIEW MORE ↓", foreground="orange", background="black", font="Helvetica 18 bold"
-    )
-    label.pack(side="bottom")
-
     create_home(bottom_frame)
 
     win.mainloop()
@@ -148,8 +143,51 @@ def create_home(frame):
     pizza = tk.Label(image=img_pizza, master=frame)
     pizza.image = img_pizza
     pizza.pack(padx=50, side=tk.LEFT)
-    frame.pack(padx=50, pady=30)
 
+    # Create "view more" frame
+    label = tk.Label(
+        text="↓ VIEW MORE ↓",
+        foreground="white",
+        background="black",
+        font="Helvetica 18 bold",
+        pady=100,
+    )
+    label.pack(side=tk.BOTTOM)
+
+    # Create "ADD TO CART" section
+    frame_add_to_cart = tk.Frame(
+        bg="black",
+    )
+
+    add_to_cart_button_1 = tk.Button(
+        master=frame_add_to_cart,
+        text="ADD TO CART",
+        font="Helvetica 18 bold",
+        width=34,
+        background="black",
+        foreground="orange",
+    )
+    add_to_cart_button_2 = tk.Button(
+        master=frame_add_to_cart,
+        text="ADD TO CART",
+        font="Helvetica 18 bold",
+        width=34,
+        background="black",
+        foreground="orange",
+    )
+    add_to_cart_button_3 = tk.Button(
+        master=frame_add_to_cart,
+        text="ADD TO CART",
+        font="Helvetica 18 bold",
+        width=34,
+        background="black",
+        foreground="orange",
+    )
+    frame_add_to_cart.pack(side=tk.BOTTOM)
+    add_to_cart_button_1.pack(side=tk.LEFT)
+    add_to_cart_button_2.pack(side=tk.LEFT, padx=80)
+    add_to_cart_button_3.pack(side=tk.LEFT)
+    frame.pack(padx=60, pady=30)
 
 def create_product(product, frame_name):
     button = tk.Button(
