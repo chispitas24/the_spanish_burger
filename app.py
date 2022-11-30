@@ -10,7 +10,7 @@ HEIGHT = 800
 home = None
 
 # List of products: name, price, quantity
-menu_items = (["La Nicky Ñam", 9.99, 0], ["pizza", 8.9, 0], ["nachos", 6.4, 0])
+menu_items = (["La Nicky Ñam", 9.99, 0], ["La Smoke", 12.99, 0], ["Edamami", 6.4, 0], ["Kevin Bacon", 11.50, 0])
 
 
 def set_position(screen_name):
@@ -112,13 +112,13 @@ def change_screen(new_screen, frame):
         for menu_item in menu_items:
             create_product(menu_item, frame)
     elif new_screen == 'COUPONS':
-        create_coupons(frame)  # TODO: CREATE COUPONS
+        create_coupons(frame)
     elif new_screen == 'HOME':
         create_home(frame)
     elif new_screen == 'DELIVERY':
-        create_home(frame) # TODO: CREATE DELIVERY SCREEN
+        create_delivery(frame)  # TODO: CREATE DELIVERY SCREEN
     elif new_screen == 'ACCOUNT':
-        create_home(frame) # TODO: CREATE ACCOUNT SCREEN
+        create_account(frame)  # TODO: CREATE ACCOUNT SCREEN
     elif new_screen == 'CART':
         create_order(frame)
     else:
@@ -168,7 +168,7 @@ def create_home(frame):
         master=frame_add_to_cart,
         text="ADD TO CART",
         font="Helvetica 18 bold",
-        width=34,
+        width=30,
         background="black",
         foreground="orange",
     )
@@ -176,7 +176,7 @@ def create_home(frame):
         master=frame_add_to_cart,
         text="ADD TO CART",
         font="Helvetica 18 bold",
-        width=34,
+        width=30,
         background="black",
         foreground="orange",
     )
@@ -184,7 +184,7 @@ def create_home(frame):
         master=frame_add_to_cart,
         text="ADD TO CART",
         font="Helvetica 18 bold",
-        width=34,
+        width=30,
         background="black",
         foreground="orange",
     )
@@ -223,7 +223,12 @@ def create_product(product, frame_name):
 def buy_product(product):
     product[2] += 1
 
+
 def create_coupons(frame):
+    """Create coupons screen
+     Args:
+        frame (Frame): frame where the objects will be placed
+    """
     label_title = tk.Label(
         master=frame,
         text="COUPONS",
@@ -284,13 +289,22 @@ def create_coupons(frame):
     label_prize_jaen.pack(side=tk.LEFT)
     frame_prizes.pack(side=tk.BOTTOM)
 
-    kevin = tk.Label(image=img_kevin, master=frame_photos)
+    kevin = tk.Label(
+        image=img_kevin,
+        master=frame_photos
+    )
     kevin.image = img_kevin
     kevin.pack(side=tk.LEFT)
-    albacete = tk.Label(image=img_albacete, master=frame_photos)
+    albacete = tk.Label(
+        image=img_albacete,
+        master=frame_photos
+    )
     albacete.image = img_albacete
     albacete.pack(padx=50, side=tk.LEFT)
-    jaen = tk.Label(image=img_jaen, master=frame_photos)
+    jaen = tk.Label(
+        image=img_jaen,
+        master=frame_photos
+    )
     jaen.image = img_jaen
     jaen.pack(side=tk.LEFT)
 
@@ -325,17 +339,53 @@ def create_coupons(frame):
     frame_text_1.pack(side=tk.BOTTOM)
 
 
+def create_delivery(frame):
+    label_title = tk.Label(
+        master=frame,
+        text="DELIVERY",
+        foreground="orange",
+        background="black",
+        font="Helvetica 25 bold",
+        pady=20
+    )
+    label_title.pack(side=tk.TOP)
+    frame_find_us = tk.Frame(
+        master=frame,
+        background="white",
+    )
+    label_find_us = tk.Label(
+        master=frame_find_us,
+        text="FIND US",
+        foreground="white",
+        background="black",
+        font="Helvetica 25 bold",
+    )
+    frame_find_us.pack(side=tk.LEFT)
 
+
+
+def create_account(frame):
+    print("HOLA")
 
 def create_order(frame):
-    label = tk.Label(master=frame, text='Your Products', foreground="white").pack()
+    label = tk.Label(
+        master=frame,
+        text='Your Products',
+        foreground="white")
+    label.pack()
     total_cost = 0.0
     for product in menu_items:
-        label_for = tk.Label(master=frame,
-                 text=str(product[2]) + "\tx\t" + product[0] + "\t\t" + str(product[1]) + "€").pack()
-        total_cost += product[1]
-    label2 = tk.Label(master=frame, text='Total cost: ' + str(total_cost) + "€").pack()
-
-
+        label_for = tk.Label(
+            master=frame,
+            text=str(product[2]) + "\tx\t" + product[0] + "\t\t" + str(product[1]) + "€"
+        )
+        label_for.pack()
+        if product[2] != 0:
+            total_cost += product[1] * product[2]
+    label2 = tk.Label(
+        master=frame,
+        text='Total cost: ' + str(total_cost) + "€"
+    )
+    label2.pack()
 
 main()
