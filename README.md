@@ -1,2 +1,7 @@
 # the_spanish_burger
-Proyecto de Software Systems Development and Management
+Software Systems Development and Management proyect
+Done by:
+Alba Gómez Liébana
+Naiara Alonso Montes
+Ismael Molinos Iglesias
+Daniel Rodríguez Sánchez
