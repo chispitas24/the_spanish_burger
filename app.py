@@ -214,79 +214,85 @@ def create_home(frame):
 
 
 def create_menu(frame):
-    left_frame = tk.Frame(master=frame, background="black")
-    middle_frame = tk.Frame(master=frame, background="black")
-    right_frame = tk.Frame(master=frame, background="black")
+    left_frame1 = tk.Frame(master=frame, background="black")
+    middle_frame1 = tk.Frame(master=frame, background="black")
+    right_frame1 = tk.Frame(master=frame, background="black")
+    left_frame2 = tk.Frame(master=frame, background="black")
+    middle_frame2 = tk.Frame(master=frame, background="black")
+    right_frame2 = tk.Frame(master=frame, background="black")
 
     image = Image.open(r"./media/burgers.png")
     resize_image = image.resize((70, 70))
     img_logo = ImageTk.PhotoImage(resize_image)
-    img_label = tk.Label(image=img_logo, master=left_frame)
+    img_label = tk.Label(image=img_logo, master=left_frame1)
     img_label.image = img_logo
-    img_label.pack(anchor="n", side=tk.LEFT)
+    img_label.pack(anchor="n")
 
-    tk.Label(master=left_frame,
+    tk.Label(master=left_frame2,
              text="BURGERS",
              foreground="orange",
              background="black",
              font="Helvetica 25 bold",
-             pady=20, ).pack(anchor="n", side=tk.LEFT)
+             pady=20, ).pack(anchor="n")
 
     for menu_item in menu_items[0:9]:
-        create_product(menu_item, left_frame)
+        create_product(menu_item, left_frame1, left_frame2)
 
     image = Image.open(r"./media/nachos.png")
     resize_image = image.resize((70, 70))
     img_logo = ImageTk.PhotoImage(resize_image)
-    img_label = tk.Label(image=img_logo, master=middle_frame)
+    img_label = tk.Label(image=img_logo, master=middle_frame1)
     img_label.image = img_logo
-    img_label.pack(anchor="n", side=tk.LEFT)
+    img_label.pack(anchor="n")
 
-    tk.Label(master=middle_frame,
+    tk.Label(master=middle_frame2,
              text="STARTERS",
              foreground="orange",
              background="black",
              font="Helvetica 25 bold",
-             pady=20, ).pack(anchor="n", side=tk.LEFT)
+             pady=20, ).pack(anchor="n")
 
     for menu_item in menu_items[10:13]:
-        create_product(menu_item, middle_frame)
+        create_product(menu_item, middle_frame1, middle_frame2)
 
     image = Image.open(r"./media/pizza.png")
     resize_image = image.resize((70, 70))
     img_logo = ImageTk.PhotoImage(resize_image)
-    img_label = tk.Label(image=img_logo, master=middle_frame)
+    img_label = tk.Label(image=img_logo, master=middle_frame1)
     img_label.image = img_logo
-    img_label.pack(anchor="n", side=tk.LEFT)
+    img_label.pack(anchor="n")
 
-    tk.Label(master=middle_frame,
+    tk.Label(master=middle_frame2,
              text="PIZZAS",
              foreground="orange",
              background="black",
              font="Helvetica 25 bold",
-             pady=20, ).pack(anchor="n", side=tk.LEFT)
+             pady=20, ).pack(anchor="n")
 
     for menu_item in menu_items[14:16]:
-        create_product(menu_item, middle_frame)
+        create_product(menu_item, middle_frame1, middle_frame2)
 
-    tk.Label(master=right_frame,
+    tk.Label(master=right_frame1,
              text="DRINKS",
              foreground="orange",
              background="black",
              font="Helvetica 25 bold",
-             pady=20, ).pack(anchor="n", side=tk.LEFT)
+             pady=20, ).pack(anchor="n")
 
     for menu_item in menu_items[16:23]:
-        create_product(menu_item, right_frame)
+        create_product(menu_item, right_frame1, right_frame2)
 
-    left_frame.pack(anchor="n", side=tk.LEFT)
-    middle_frame.pack(anchor="n", side=tk.LEFT)
-    right_frame.pack(anchor="n", side=tk.LEFT)
+    left_frame1.pack(anchor="n", side=tk.LEFT)
+    left_frame2.pack(anchor="n", side=tk.LEFT)
+    middle_frame1.pack(anchor="n", side=tk.LEFT)
+    middle_frame2.pack(anchor="n", side=tk.LEFT)
+    right_frame1.pack(anchor="n", side=tk.LEFT)
+    right_frame2.pack(anchor="n", side=tk.LEFT)
 
 
-def create_product(product, frame_name):
+def create_product(product, frame_name1, frame_name2):
     button1 = tk.Button(
-        master=frame_name,
+        master=frame_name1,
         text="+ " + product[0],
         highlightthickness=0,
         bd=0,
@@ -297,7 +303,7 @@ def create_product(product, frame_name):
         command=lambda: buy_product(product)
     )
     button2 = tk.Button(
-        master=frame_name,
+        master=frame_name2,
         text=str(product[1]) + "€",
         highlightthickness=0,
         bd=0,
@@ -308,8 +314,8 @@ def create_product(product, frame_name):
         command=lambda: buy_product(product)
     )
 
-    button1.pack(anchor="ne", side=tk.LEFT)
-    button2.pack(anchor="nw", side=tk.RIGHT)
+    button1.pack(anchor="n")
+    button2.pack(anchor="n")
 
 
 def buy_product(product):
