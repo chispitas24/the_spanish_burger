@@ -226,14 +226,14 @@ def create_menu(frame):
     img_logo = ImageTk.PhotoImage(resize_image)
     img_label = tk.Label(image=img_logo, master=left_frame1)
     img_label.image = img_logo
-    img_label.pack(anchor="n")
+    img_label.pack()
 
     tk.Label(master=left_frame2,
              text="BURGERS",
              foreground="orange",
              background="black",
              font="Helvetica 25 bold",
-             pady=20, ).pack(anchor="n")
+             pady=20, ).pack(anchor="w")
 
     for menu_item in menu_items[0:9]:
         create_product(menu_item, left_frame1, left_frame2)
@@ -243,14 +243,14 @@ def create_menu(frame):
     img_logo = ImageTk.PhotoImage(resize_image)
     img_label = tk.Label(image=img_logo, master=middle_frame1)
     img_label.image = img_logo
-    img_label.pack(anchor="n")
+    img_label.pack()
 
     tk.Label(master=middle_frame2,
              text="STARTERS",
              foreground="orange",
              background="black",
              font="Helvetica 25 bold",
-             pady=20, ).pack(anchor="n")
+             pady=20, ).pack(anchor="w")
 
     for menu_item in menu_items[10:13]:
         create_product(menu_item, middle_frame1, middle_frame2)
@@ -260,24 +260,31 @@ def create_menu(frame):
     img_logo = ImageTk.PhotoImage(resize_image)
     img_label = tk.Label(image=img_logo, master=middle_frame1)
     img_label.image = img_logo
-    img_label.pack(anchor="n")
+    img_label.pack()
 
     tk.Label(master=middle_frame2,
              text="PIZZAS",
              foreground="orange",
              background="black",
              font="Helvetica 25 bold",
-             pady=20, ).pack(anchor="n")
+             pady=20, ).pack(anchor="w")
 
     for menu_item in menu_items[14:16]:
         create_product(menu_item, middle_frame1, middle_frame2)
 
-    tk.Label(master=right_frame1,
+    tk.Label(master=right_frame2,
              text="DRINKS",
              foreground="orange",
              background="black",
              font="Helvetica 25 bold",
-             pady=20, ).pack(anchor="n")
+             pady=20, ).pack(anchor="w")
+
+    tk.Label(master=right_frame2,
+             text="xd",
+             foreground="black",
+             background="black",
+             font="Helvetica 25 bold",
+             pady=20, ).pack()
 
     for menu_item in menu_items[16:23]:
         create_product(menu_item, right_frame1, right_frame2)
@@ -314,8 +321,8 @@ def create_product(product, frame_name1, frame_name2):
         command=lambda: buy_product(product)
     )
 
-    button1.pack(anchor="n")
-    button2.pack(anchor="n")
+    button1.pack(anchor="w")
+    button2.pack(anchor="w")
 
 
 def buy_product(product):
