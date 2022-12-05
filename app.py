@@ -93,7 +93,7 @@ def main():
     pic_1 = photo.subsample(1, 2)
     create_button_image(pic_1, "HOME", top_bar_frame, bottom_frame)
     create_button("DELIVERY", top_bar_frame, bottom_frame)
-    create_button("MY ACCOUNT", top_bar_frame, bottom_frame)
+    create_button("ACCOUNT", top_bar_frame, bottom_frame)
     photo = tk.PhotoImage(file=r"./media/carrito.png")
     pic_2 = photo.subsample(8, 8)
     create_button_image(pic_2, "CART", top_bar_frame, bottom_frame)
@@ -349,43 +349,456 @@ def create_delivery(frame):
         pady=20
     )
     label_title.pack(side=tk.TOP)
+
     frame_find_us = tk.Frame(
         master=frame,
-        background="white",
+        background="black"
     )
     label_find_us = tk.Label(
         master=frame_find_us,
         text="FIND US",
         foreground="white",
         background="black",
-        font="Helvetica 25 bold",
+        font="Helvetica 20 bold",
+        pady=20
     )
+    label_find_us.pack()
+
+    image = Image.open(r"./media/murcia.png")
+    resize_image = image.resize((550, 450))
+    img_map = ImageTk.PhotoImage(resize_image)
+
+    map = tk.Label(
+        image=img_map,
+        master=frame_find_us
+    )
+    map.image = img_map
+    map.pack()
+
+    frame_contact = tk.Frame(
+        master=frame_find_us,
+        background="black"
+    )
+
+    label_address = tk.Label(
+        master=frame_contact,
+        text="Street Los Dolores, 2000",
+        foreground="white",
+        background="black",
+        font="Helvetica 20 bold",
+        pady=20
+    )
+    label_address.pack(side=tk.TOP)
+
+    image = Image.open(r"./media/phone.png")
+    resize_image = image.resize((50, 50))
+    img_phone = ImageTk.PhotoImage(resize_image)
+
+    phone = tk.Label(
+        image=img_phone,
+        master=frame_contact,
+        background="black"
+    )
+    phone.image = img_phone
+    phone.pack(side=tk.LEFT)
+
+    label_phone_number = tk.Label(
+        master=frame_contact,
+        text="(+34) 969 89 10 79",
+        foreground="white",
+        background="black",
+        font="Helvetica 20 bold",
+        pady=20
+    )
+    label_phone_number.pack()
+    frame_contact.pack()
     frame_find_us.pack(side=tk.LEFT)
+
+    label_rewards = tk.Frame(
+        master=frame,
+        background="black"
+    )
+
+    label_location = tk.Label(
+        master=label_rewards,
+        text="Up to 30 Km\nFree for orders higher than 20€\nEarn Spanish Coins and interchange them\nfor rewards of your favourites games",
+        font="Helvetica 20 bold",
+        foreground="white",
+        background="black"
+    )
+    label_location.pack(side=tk.TOP)
+
+    frame_image = tk.Frame(
+        master=label_rewards,
+        background="black"
+    )
+
+    image = Image.open(r"./media/logo_lol.png")
+    resize_image = image.resize((200, 200))
+    img_lol = ImageTk.PhotoImage(resize_image)
+
+    lol = tk.Label(
+        image=img_lol,
+        master=frame_image
+    )
+    lol.image = img_lol
+    lol.pack(side=tk.LEFT)
+
+    image = Image.open(r"./media/logo_cod.png")
+    resize_image = image.resize((340, 250))
+    img_cod = ImageTk.PhotoImage(resize_image)
+
+    cod = tk.Label(
+        image=img_cod,
+        master=frame_image
+    )
+    cod.image = img_cod
+    cod.pack(side=tk.RIGHT)
+    frame_image.pack(ipadx=60, pady=40)
+    label_rewards.pack(side=tk.RIGHT, padx=200, ipady=60, ipadx=40)
 
 
 
 def create_account(frame):
-    print("HOLA")
+    label_title = tk.Label(
+        master=frame,
+        text="MY ACCOUNT",
+        font="Helvetica 25 bold",
+        foreground="orange",
+        background="black",
+        pady=20,
+    )
+    label_title.pack(side=tk.TOP)
+
+    image = Image.open(r"./media/naruto.jpg")
+    resize_image = image.resize((175, 250))
+    img_naruto = ImageTk.PhotoImage(resize_image)
+
+    naruto = tk.Label(
+        image=img_naruto,
+        master=frame
+    )
+    naruto.image = img_naruto
+    naruto.pack(side=tk.LEFT)
+
+    frame_personal_information = tk.Frame(
+        master=frame,
+        background="black"
+    )
+
+    # NAME
+    frame_name = tk.Frame(
+        master=frame_personal_information,
+        background="black"
+    )
+    label_name_1 = tk.Label(
+        master=frame_name,
+        text="NAME: ",
+        foreground="orange",
+        background="black",
+        font="Helvetica 18 bold",
+        pady=20
+    )
+    label_name_1.pack(side=tk.LEFT)
+    label_name_2 = tk.Label(
+        master=frame_name,
+        text="Pedro",
+        foreground="white",
+        background="black",
+        font="Helvetica 18 bold",
+        pady=20
+    )
+    label_name_2.pack(side=tk.RIGHT)
+    frame_name.pack(side=tk.TOP)
+
+    # SURNAME
+    frame_surname = tk.Frame(
+        master=frame_personal_information,
+        background="black"
+    )
+    label_surname_1 = tk.Label(
+        master=frame_surname,
+        text="SURNAME: ",
+        foreground="orange",
+        background="black",
+        font="Helvetica 18 bold",
+        pady=20
+    )
+    label_surname_1.pack(side=tk.LEFT)
+    label_surname_2 = tk.Label(
+        master=frame_surname,
+        text="Sánchez Castejón",
+        foreground="white",
+        background="black",
+        font="Helvetica 18 bold",
+        pady=20
+    )
+    label_surname_2.pack(side=tk.RIGHT)
+    frame_surname.pack(side=tk.TOP)
+
+    # ADDRESS
+    frame_address = tk.Frame(
+        master=frame_personal_information,
+        background="black"
+    )
+    label_address_1 = tk.Label(
+        master=frame_address,
+        text="ADDRESS: ",
+        foreground="orange",
+        background="black",
+        font="Helvetica 18 bold",
+        pady=20
+    )
+    label_address_1.pack(side=tk.LEFT)
+    label_address_2 = tk.Label(
+        master=frame_address,
+        text="Moncloa Street 49",
+        foreground="white",
+        background="black",
+        font="Helvetica 18 bold",
+        pady=20
+    )
+    label_address_2.pack(side=tk.RIGHT)
+    frame_address.pack(side=tk.TOP)
+
+    # BIRTHDATE
+    frame_birthdate = tk.Frame(
+        master=frame_personal_information,
+        background="black"
+    )
+    label_birthdate_1 = tk.Label(
+        master=frame_birthdate,
+        text="BIRTHDATE: ",
+        foreground="orange",
+        background="black",
+        font="Helvetica 18 bold",
+        pady=20
+    )
+    label_birthdate_1.pack(side=tk.LEFT)
+    label_birthdate_2 = tk.Label(
+        master=frame_birthdate,
+        text="28/02/1972",
+        foreground="white",
+        background="black",
+        font="Helvetica 18 bold",
+        pady=20
+    )
+    label_birthdate_2.pack(side=tk.RIGHT)
+    frame_birthdate.pack(side=tk.TOP)
+
+    # EMAIL
+    frame_email = tk.Frame(
+        master=frame_personal_information,
+        background="black"
+    )
+    label_email_1 = tk.Label(
+        master=frame_email,
+        text="EMAIL: ",
+        foreground="orange",
+        background="black",
+        font="Helvetica 18 bold",
+        pady=20
+    )
+    label_email_1.pack(side=tk.LEFT)
+    label_email_2 = tk.Label(
+        master=frame_email,
+        text="psc1972@gmail.com",
+        foreground="white",
+        background="black",
+        font="Helvetica 18 bold",
+        pady=20
+    )
+    label_email_2.pack(side=tk.RIGHT)
+    frame_email.pack(side=tk.TOP)
+
+    # PHONE
+    frame_phone = tk.Frame(
+        master=frame_personal_information,
+        background="black"
+    )
+    label_phone_1 = tk.Label(
+        master=frame_phone,
+        text="PHONE: ",
+        foreground="orange",
+        background="black",
+        font="Helvetica 18 bold",
+        pady=20
+    )
+    label_phone_1.pack(side=tk.LEFT)
+    label_phone_2 = tk.Label(
+        master=frame_phone,
+        text="(+34) 696 47 90 50",
+        foreground="white",
+        background="black",
+        font="Helvetica 18 bold",
+        pady=20
+    )
+    label_phone_2.pack(side=tk.RIGHT)
+    frame_phone.pack(side=tk.TOP)
+
+    # CREDIT CARD
+    frame_credit_card = tk.Frame(
+        master=frame_personal_information,
+        background="black"
+    )
+    label_credit_cards_1 = tk.Label(
+        master=frame_credit_card,
+        text="CREDIT CARDS: ",
+        foreground="orange",
+        background="black",
+        font="Helvetica 18 bold",
+        pady=20
+    )
+    label_credit_cards_1.pack(side=tk.LEFT)
+    label_credit_cards_2 = tk.Label(
+        master=frame_credit_card,
+        text="Mastercard    **** **** **** 2979\nVisa               **** **** **** 9792",
+        foreground="white",
+        background="black",
+        font="Helvetica 18 bold",
+        pady=20
+    )
+    label_credit_cards_2.pack(side=tk.RIGHT)
+    frame_credit_card.pack(side=tk.TOP)
+    frame_personal_information.pack(padx=20, side=tk.LEFT)
+
+    frame_right_side = tk.Frame(
+        master=frame,
+        background="black"
+    )
+
+    label_spanish_coins = tk.Label(
+        master=frame_right_side,
+        text="SPANISH COINS",
+        foreground="orange",
+        background="black",
+        font="Helvetica 30 bold",
+    )
+    label_spanish_coins.pack(side=tk.TOP)
+
+    frame_coin = tk.Frame(
+        master=frame_right_side,
+        background="black"
+    )
+    label_year_coin = tk.Label(
+        master=frame_coin,
+        text="1492",
+        font="Helvetica 35 bold",
+        foreground="white",
+        background="black",
+    )
+    label_year_coin.pack(side=tk.LEFT)
+    image = Image.open(r"./media/euro.png")
+    resize_image = image.resize((50, 50))
+    img_coin = ImageTk.PhotoImage(resize_image)
+
+    coin = tk.Label(
+        image=img_coin,
+        master=frame_coin
+    )
+    coin.image = img_coin
+    coin.pack(side=tk.RIGHT)
+    frame_coin.pack(side=tk.TOP, ipadx=40)
+
+    frame_contact_us = tk.Frame(
+        master=frame_right_side,
+        background="black"
+    )
+    label_contact_us = tk.Label(
+        master=frame_contact_us,
+        text="CONTACT US",
+        foreground="orange",
+        background="black",
+        font="Helvetica 30 bold",
+    )
+    label_contact_us.pack(side=tk.TOP)
+
+
+    frame_phone_contact = tk.Frame(
+        master=frame_contact_us,
+        background="black"
+    )
+    image = Image.open(r"./media/phone.png")
+    resize_image = image.resize((50, 50))
+    img_phone = ImageTk.PhotoImage(resize_image)
+
+    phone = tk.Label(
+        image=img_phone,
+        master=frame_phone_contact
+    )
+    phone.image = img_phone
+    phone.pack(side=tk.LEFT)
+
+    label_phone = tk.Label(
+        master=frame_phone_contact,
+        text="(+34) 696 89 72 55",
+        font="Helvetica 20 bold",
+        background="black",
+        foreground="white"
+    )
+    label_phone.pack(side=tk.RIGHT)
+
+    frame_phone_contact.pack(side=tk.TOP, ipadx=10, ipady=10)
+
+    frame_gmail_contact = tk.Frame(
+        master=frame_contact_us,
+        background="black"
+    )
+    image = Image.open(r"./media/gmail.png")
+    resize_image = image.resize((50, 50))
+    img_gmail = ImageTk.PhotoImage(resize_image)
+
+    gmail = tk.Label(
+        image=img_gmail,
+        master=frame_gmail_contact
+    )
+    gmail.image = img_gmail
+    gmail.pack(side=tk.LEFT)
+
+    label_gmail = tk.Label(
+        master=frame_gmail_contact,
+        text="info@spburger.com",
+        font="Helvetica 20 bold",
+        background="black",
+        foreground="white"
+    )
+    label_gmail.pack(side=tk.RIGHT)
+
+    frame_gmail_contact.pack(side=tk.BOTTOM, ipadx=10, ipady=10)
+    frame_contact_us.pack(side=tk.BOTTOM, pady=30)
+
+    frame_right_side.pack(side=tk.LEFT)
+
 
 def create_order(frame):
     label = tk.Label(
         master=frame,
         text='Your Products',
-        foreground="white")
-    label.pack()
+        foreground="orange",
+        background="black",
+        font="Helvetica 25 bold",
+    )
+    label.pack(pady=30)
     total_cost = 0.0
     for product in menu_items:
         label_for = tk.Label(
             master=frame,
-            text=str(product[2]) + "\tx\t" + product[0] + "\t\t" + str(product[1]) + "€"
+            text=str(product[2]) + "\tx\t" + product[0] + "\t\t" + str(product[1]) + "€",
+            foreground="white",
+            background="black",
+            font="Helvetica 15 bold",
         )
         label_for.pack()
         if product[2] != 0:
             total_cost += product[1] * product[2]
     label2 = tk.Label(
         master=frame,
-        text='Total cost: ' + str(total_cost) + "€"
+        text='Total cost: ' + str(total_cost) + "€",
+        foreground="orange",
+        background="black",
+        font="Helvetica 25 bold",
+
     )
-    label2.pack()
+    label2.pack(pady=30)
 
 main()
