@@ -109,8 +109,7 @@ def change_screen(new_screen, frame):
         widget.destroy()
 
     if new_screen == 'MENU':
-        for menu_item in menu_items:
-            create_product(menu_item, frame)
+        create_menu(frame)
     elif new_screen == 'COUPONS':
         create_coupons(frame)
     elif new_screen == 'HOME':
@@ -207,17 +206,103 @@ def create_home(frame):
     frame.pack(padx=60)
 
 
+def create_menu(frame):
+    left_frame = tk.Frame(master=frame, background="black")
+    middle_frame = tk.Frame(master=frame, background="black")
+    right_frame = tk.Frame(master=frame, background="black")
+
+    image = Image.open(r"./media/burgers.png")
+    resize_image = image.resize((70, 70))
+    img_logo = ImageTk.PhotoImage(resize_image)
+    img_label = tk.Label(image=img_logo, master=left_frame)
+    img_label.image = img_logo
+    img_label.pack(anchor="n", side=tk.LEFT)
+
+    tk.Label(master=left_frame,
+             text="BURGERS",
+             foreground="orange",
+             background="black",
+             font="Helvetica 25 bold",
+             pady=20, ).pack(anchor="n", side=tk.LEFT)
+
+    for menu_item in menu_items[0:9]:
+        create_product(menu_item, left_frame)
+
+    image = Image.open(r"./media/nachos.png")
+    resize_image = image.resize((70, 70))
+    img_logo = ImageTk.PhotoImage(resize_image)
+    img_label = tk.Label(image=img_logo, master=middle_frame)
+    img_label.image = img_logo
+    img_label.pack(anchor="n", side=tk.LEFT)
+
+    tk.Label(master=middle_frame,
+             text="STARTERS",
+             foreground="orange",
+             background="black",
+             font="Helvetica 25 bold",
+             pady=20, ).pack(anchor="n", side=tk.LEFT)
+
+    for menu_item in menu_items[10:13]:
+        create_product(menu_item, middle_frame)
+
+    image = Image.open(r"./media/pizza.png")
+    resize_image = image.resize((70, 70))
+    img_logo = ImageTk.PhotoImage(resize_image)
+    img_label = tk.Label(image=img_logo, master=middle_frame)
+    img_label.image = img_logo
+    img_label.pack(anchor="n", side=tk.LEFT)
+
+    tk.Label(master=middle_frame,
+             text="PIZZAS",
+             foreground="orange",
+             background="black",
+             font="Helvetica 25 bold",
+             pady=20, ).pack(anchor="n", side=tk.LEFT)
+
+    for menu_item in menu_items[14:16]:
+        create_product(menu_item, middle_frame)
+
+    tk.Label(master=right_frame,
+             text="DRINKS",
+             foreground="orange",
+             background="black",
+             font="Helvetica 25 bold",
+             pady=20, ).pack(anchor="n", side=tk.LEFT)
+
+    for menu_item in menu_items[16:23]:
+        create_product(menu_item, right_frame)
+
+    left_frame.pack(anchor="n", side=tk.LEFT)
+    middle_frame.pack(anchor="n", side=tk.LEFT)
+    right_frame.pack(anchor="n", side=tk.LEFT)
+
+
 def create_product(product, frame_name):
-    button = tk.Button(
+    button1 = tk.Button(
         master=frame_name,
-        text="+ " + product[0] + "\t\t\t" + str(product[1]) + "€",
+        text="+ " + product[0],
         highlightthickness=0,
         bd=0,
-        font="Helvetica 18",
+        font="Helvetica 18 bold",
+        foreground="white",
+        background="black",
         padx=50,
         command=lambda: buy_product(product)
     )
-    button.pack(side=tk.BOTTOM)
+    button2 = tk.Button(
+        master=frame_name,
+        text=str(product[1]) + "€",
+        highlightthickness=0,
+        bd=0,
+        font="Helvetica 18 bold",
+        foreground="orange",
+        background="black",
+        padx=50,
+        command=lambda: buy_product(product)
+    )
+
+    button1.pack(anchor="ne", side=tk.LEFT)
+    button2.pack(anchor="nw", side=tk.RIGHT)
 
 
 def buy_product(product):
@@ -456,7 +541,6 @@ def create_delivery(frame):
     cod.pack(side=tk.RIGHT)
     frame_image.pack(ipadx=60, pady=40)
     label_rewards.pack(side=tk.RIGHT, padx=200, ipady=60, ipadx=40)
-
 
 
 def create_account(frame):
@@ -800,5 +884,6 @@ def create_order(frame):
 
     )
     label2.pack(pady=30)
+
 
 main()
