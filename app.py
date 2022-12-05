@@ -10,7 +10,14 @@ HEIGHT = 800
 home = None
 
 # List of products: name, price, quantity
-menu_items = (["La Nicky Ñam", 9.99, 0], ["La Smoke", 12.99, 0], ["Edamami", 6.4, 0], ["Kevin Bacon", 11.50, 0])
+menu_items = (["La Nicky Ñam", 9.99, 0], ["La Smoke", 12.99, 0], ["Edamami", 10.99, 0],
+              ["Kevin Bacon", 11.50, 0], ["Kendall Bacon", 11.99, 0], ["La smash", 14.99, 0],
+              ["Pigma", 10.99, 0], ["M-30", 9.50, 0], ["Albacete", 15.99, 0],
+              ["Nachitos", 5.99, 0], ["Chicken tenders", 8.99, 0], ["Papalatas", 6.99, 0],
+              ["Onion rings", 4.99, 0], ["Chilly pizza", 9.99, 0], ["Murcia pizza", 12.99, 0],
+              ["Jaén Pizza", 15.99, 0], ["Water", 1.50, 0], ["Cruzcampo", 2.80, 0],
+              ["Estrella", 2.80, 0], ["Coca-cola", 2.50, 0], ["Nestea", 2.50, 0],
+              ["Sangría", 4, 0], ["Wine", 3.50, 0])
 
 
 def set_position(screen_name):
