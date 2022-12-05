@@ -279,7 +279,7 @@ def create_menu(frame):
              font="Helvetica 25 bold",
              pady=20, ).pack(anchor="w")
 
-    tk.Label(master=right_frame2,
+    tk.Label(master=right_frame1,
              text="xd",
              foreground="black",
              background="black",
@@ -289,12 +289,12 @@ def create_menu(frame):
     for menu_item in menu_items[16:23]:
         create_product(menu_item, right_frame1, right_frame2)
 
-    left_frame1.pack(anchor="n", side=tk.LEFT)
-    left_frame2.pack(anchor="n", side=tk.LEFT)
-    middle_frame1.pack(anchor="n", side=tk.LEFT)
-    middle_frame2.pack(anchor="n", side=tk.LEFT)
-    right_frame1.pack(anchor="n", side=tk.LEFT)
-    right_frame2.pack(anchor="n", side=tk.LEFT)
+    left_frame1.pack(side=tk.LEFT)
+    left_frame2.pack(side=tk.LEFT)
+    middle_frame1.pack(side=tk.LEFT)
+    middle_frame2.pack(side=tk.LEFT)
+    right_frame1.pack(side=tk.LEFT)
+    right_frame2.pack(side=tk.LEFT)
 
 
 def create_product(product, frame_name1, frame_name2):
